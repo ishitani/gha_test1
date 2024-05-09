@@ -20,7 +20,6 @@ fi
 ls -la .
 
 set +e
-rm -rf .mozconfig
 ./mach build
 rm -rf   .ycm_extra_conf.py
 ./mach build
@@ -41,4 +40,6 @@ rm -rf   configure.py
 rm -rf   moz.build
 ./mach build
 rm -rf   moz.configure
+./mach build
+rm -rf .mozconfig
 ./mach build
