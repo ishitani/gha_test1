@@ -21,25 +21,20 @@ ls -la .
 
 set +e
 ./mach build
-rm -rf   .ycm_extra_conf.py
+rm -rf build/mach_bootstrap.py
 ./mach build
-rm -rf   README.md
+rm -rf build/pymake
 ./mach build
-rm -rf   aclocal.m4
+rm -rf build/autoconf
 ./mach build
-rm -rf   build
+rm -rf build/autoconf/mozconfig-find
 ./mach build
-rm -rf   client.mk
+rm -rf build/autoconf/mozconfig2client-mk
 ./mach build
-rm -rf   config
+rm -rf build/dumbmake-dependencies
 ./mach build
-rm -rf   configure.in
+rm -rf build/pypng
 ./mach build
-rm -rf   configure.py
+rm -rf build
 ./mach build
-rm -rf   moz.build
-./mach build
-rm -rf   moz.configure
-./mach build
-rm -rf .mozconfig
-./mach build
+
