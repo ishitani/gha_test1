@@ -7,6 +7,7 @@ on:
 
 env:
   cache-version: v1
+  cache-version-uxp: v2
 
 ###############################################
 
@@ -27,10 +28,10 @@ jobs:
 
     - uses: actions/cache@v4
       with:
-        path: ${{ github.workspace }}\platform
-        key: ${{ env.cache-version }}-uxp-${{ hashFiles('README.md') }}
+        path: ${{ github.workspace }}\uxp_gui\platform
+        key: ${{ env.cache-version-uxp }}-uxp-${{ hashFiles('README.md') }}
         restore-keys: |
-          ${{ env.cache-version }}-uxp-
+          ${{ env.cache-version-uxp }}-uxp-
 
     - name: Install prerequisite
       run: |

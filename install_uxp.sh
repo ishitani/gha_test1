@@ -2,7 +2,7 @@
 set -eux
 
 WSDIR=$(cd $(dirname $0); pwd)
-cd $WSDIR
+cd $WSDIR/uxp_gui/
 
 if [ ! -d ${WSDIR}/platform ]; then
     # Retrieve UXP tarball
@@ -14,9 +14,7 @@ if [ ! -d ${WSDIR}/platform ]; then
     set +e
     tar xzf $UXP_TGZ
     set -e
-    mv uxp ${WSDIR}/platform
+    mv uxp platform
 fi
 ls -la .
 ./mach build
-
-
