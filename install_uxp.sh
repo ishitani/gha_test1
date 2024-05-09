@@ -1,6 +1,7 @@
 #!/bin/bash
 
 WSDIR=$(cd $(dirname $0)/..; pwd)
+cd $WSDIR
 
 if [ ! -d ${WSDIR}/platform ]; then
 # Retrieve UXP tarball
