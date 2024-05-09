@@ -24,10 +24,17 @@ jobs:
 
     - name: Install prerequisite
       run: |
-        dir c:\mozilla-build
-        Start-BitsTransfer -Source https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-3.4.exe -Destination ./MozillaBuildSetup.exe
-        .\MozillaBuildSetup.exe /S | Out-Null
-        dir c:\
+        $mozilladir = "c:\mozilla-build"
+        dir $mozilladir
+
+        if((Test-Path $mozilladir) -eq "True"){
+          Write-Host "Cache exists"
+        }else{
+          Start-BitsTransfer -Source https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-3.4.exe -Destination ./MozillaBuildSetup.exe
+          .\MozillaBuildSetup.exe /S | Out-Null
+        }
+
+        dir $mozilladir
         
     - name: test1
       shell: bash
