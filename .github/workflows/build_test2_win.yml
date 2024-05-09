@@ -24,6 +24,7 @@ jobs:
 
     - name: Install prerequisite
       run: |
+        dir c:\mozilla-build
         Start-BitsTransfer -Source https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-3.4.exe -Destination ./MozillaBuildSetup.exe
         .\MozillaBuildSetup.exe /S | Out-Null
         dir c:\
