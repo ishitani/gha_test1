@@ -5,6 +5,9 @@ on:
     # branches-ignore:
     #   - '**'
 
+env:
+  cache-version: v1
+
 ###############################################
 
 jobs:
@@ -18,9 +21,16 @@ jobs:
     - uses: actions/cache@v4
       with:
         path: C:\mozilla-build\
-        key: node-${{ hashFiles('README.md') }}
+        key: ${{ env.cache-version }}-mozbuild-${{ hashFiles('README.md') }}
         restore-keys: |
-          node-
+          ${{ env.cache-version }}-mozbuild-
+
+    - uses: actions/cache@v4
+      with:
+        path: ${{ github.workspace }}\platform
+        key: ${{ env.cache-version }}-uxp-${{ hashFiles('README.md') }}
+        restore-keys: |
+          ${{ env.cache-version }}-uxp-
 
     - name: Install prerequisite
       run: |
@@ -36,7 +46,7 @@ jobs:
 
         dir $mozilladir
         
-    - name: test1
+    - name: Get repos dir
       shell: bash
       id: get-repos-dir
       run: |
@@ -45,7 +55,13 @@ jobs:
         echo "repos-dir=$REPOS_DIR" >> $GITHUB_OUTPUT
         HOMEPATH_UX=$(echo "$HOMEPATH" | sed 's/\\/\//g')
         echo "home-dir=$HOMEDRIVE$HOMEPATH_UX" >> $GITHUB_OUTPUT
-        env
+        # env
+
+    - name: Install UXP
+      shell: cmd
+      run: |
+        echo on
+        cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh
 
     - name: Run mozilla build
       shell: cmd
