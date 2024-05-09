@@ -15,6 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - uses: actions/cache@v1.0.3
+      with:
+        path: C:\mozilla-build\
+        key: node-${{ hashFiles('README.md') }}
+        restore-keys: |
+          node-
+
     - name: Install prerequisite
       run: |
         Start-BitsTransfer -Source https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-3.4.exe -Destination ./MozillaBuildSetup.exe
