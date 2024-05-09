@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eux
 
-WSDIR=$(cd $(dirname $0)/..; pwd)
+WSDIR=$(cd $(dirname $0); pwd)
 cd $WSDIR
 
 if [ ! -d ${WSDIR}/platform ]; then
@@ -16,4 +16,7 @@ if [ ! -d ${WSDIR}/platform ]; then
     set -e
     mv uxp ${WSDIR}/platform
 fi
-ls -la ${WSDIR}/platform
+ls -la .
+./mach build
+
+
