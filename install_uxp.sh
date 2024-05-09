@@ -4,7 +4,7 @@ set -eux
 WSDIR=$(cd $(dirname $0); pwd)
 cd $WSDIR/uxp_gui/
 
-if [ ! -d ${WSDIR}/platform ]; then
+if [ ! -d ${WSDIR}/uxp_gui/platform ]; then
     # Retrieve UXP tarball
     UXP_TGZ=RB_20231106.tar.gz
     UXP_VERSION=v0.0.1
