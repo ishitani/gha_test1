@@ -62,6 +62,7 @@ jobs:
       run: |
         echo on
         cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh
+        dir ${{ github.workspace }}\platform
 
     - name: Run mozilla build
       shell: cmd
