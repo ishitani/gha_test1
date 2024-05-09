@@ -16,19 +16,29 @@ if [ ! -d ${WSDIR}/platform ]; then
     set -e
     mv uxp platform
 fi
-rm -rf \
-   .mozconfig \
-   .ycm_extra_conf.py \
-   README.md \
-   aclocal.m4 \
-   build \
-   client.mk \
-   config \
-   configure.in \
-   configure.py \
-   moz.build \
-   moz.configure
-   
-ls -la .
-./mach build
 
+ls -la .
+
+set +e
+rm -rf .mozconfig
+./mach build
+rm -rf   .ycm_extra_conf.py
+./mach build
+rm -rf   README.md
+./mach build
+rm -rf   aclocal.m4
+./mach build
+rm -rf   build
+./mach build
+rm -rf   client.mk
+./mach build
+rm -rf   config
+./mach build
+rm -rf   configure.in
+./mach build
+rm -rf   configure.py
+./mach build
+rm -rf   moz.build
+./mach build
+rm -rf   moz.configure
+./mach build
