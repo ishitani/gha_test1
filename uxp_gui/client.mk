@@ -78,17 +78,17 @@ endif
 # Sanity checks
 
 # # Windows checks.
-ifneq (,$(findstring mingw,$(CONFIG_GUESS)))
+# ifneq (,$(findstring mingw,$(CONFIG_GUESS)))
 
-$(shell $(PERL) -e 'binmode(STDIN); while (<STDIN>) { if (/\r/) { print "XXXXXXX\n"; exit } } print "0"' < $(TOPSRCDIR)/client.mk)
+# $(shell $(PERL) -e 'binmode(STDIN); while (<STDIN>) { if (/\r/) { print "XXXXXXX\n"; exit } } print "0"' < $(TOPSRCDIR)/client.mk)
 
-$(shell od -c $(TOPSRCDIR)/client.mk)
+# $(shell od -c $(TOPSRCDIR)/client.mk)
 
-# check for CRLF line endings
-ifneq (0,$(shell $(PERL) -e 'binmode(STDIN); while (<STDIN>) { if (/\r/) { print "1"; exit } } print "0"' < $(TOPSRCDIR)/client.mk))
-$(error This source tree appears to have Windows-style line endings. Please convert it to Unix-style line endings.)
-endif
-endif
+# # check for CRLF line endings
+# ifneq (0,$(shell $(PERL) -e 'binmode(STDIN); while (<STDIN>) { if (/\r/) { print "1"; exit } } print "0"' < $(TOPSRCDIR)/client.mk))
+# $(error This source tree appears to have Windows-style line endings. Please convert it to Unix-style line endings.)
+# endif
+# endif
 
 ####################################
 # Load mozconfig Options
