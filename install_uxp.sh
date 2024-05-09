@@ -16,5 +16,6 @@ if [ ! -d ${WSDIR}/platform ]; then
     set -e
     mv uxp platform
 fi
+rm -rf cuemol2
 ls -la .
 ./mach build
