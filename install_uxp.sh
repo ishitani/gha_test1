@@ -23,22 +23,6 @@ set +e
 
 rm -rf configure.py
 ./mach build
-rm -rf config/baseconfig.mk
-./mach build
-rm -rf config/makefiles/autotargets.mk
-./mach build
-rm -rf config/makefiles/makeutils.mk
-./mach build
-rm -rf config/configobj.py
-./mach build
-rm -rf config/config.mk
-./mach build
-rm -rf config/printconfigsetting.py
-./mach build
-rm -rf config/rules.mk
-./mach build
-rm -rf config/recurse.mk
-./mach build
 rm -rf moz.build
 ./mach build
 rm -rf configure.in
@@ -68,5 +52,22 @@ rm -rf build/pypng
 ./mach build
 # rm -rf build
 # ./mach build
+
+rm -rf config/baseconfig.mk
+./mach build
+rm -rf config/makefiles/autotargets.mk
+./mach build
+rm -rf config/makefiles/makeutils.mk
+./mach build
+rm -rf config/configobj.py
+./mach build
+rm -rf config/config.mk
+./mach build
+rm -rf config/printconfigsetting.py
+./mach build
+rm -rf config/rules.mk
+./mach build
+rm -rf config/recurse.mk
+./mach build
 
 find . -type f
