@@ -30,9 +30,14 @@ jobs:
       run: |
         echo on
         echo %VCToolsRedistDir%
-        dir %VCToolsRedistDir%
-        dir %VCToolsRedistDir%\x64
-        dir %VCToolsRedistDir%\x64\Microsoft.VC143.CRT
+        dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
+        dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC
+        dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist
+        dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC
+        dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\14.29.30133
+        REM dir %VCToolsRedistDir%
+        REM dir %VCToolsRedistDir%\x64
+        REM dir %VCToolsRedistDir%\x64\Microsoft.VC143.CRT
         
     - uses: actions/cache@v4
       with:
