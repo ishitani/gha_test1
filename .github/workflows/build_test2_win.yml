@@ -30,10 +30,14 @@ jobs:
       run: |
         echo on
         echo %VCToolsRedistDir%
-        dir "%VCToolsRedistDir%"
-        dir "%VCToolsRedistDir%x64"
-        dir "%VCToolsRedistDir%x64\Microsoft.VC143.CRT"
+        REM dir "%VCToolsRedistDir%"
+        REM dir "%VCToolsRedistDir%x64"
+        dir "%VCToolsRedistDir%x64\Microsoft.VC142.CRT"
         
+        dir "%WindowsSdkDir%"
+        dir "%WindowsSdkDir%\Redist"
+        dir "%WindowsSdkDir%\Redist\WindowsSDKLibVersion"
+
         set
 
     - uses: actions/cache@v4
