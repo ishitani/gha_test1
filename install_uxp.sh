@@ -17,15 +17,16 @@ if [ ! -d ${WSDIR}/uxp_gui/platform ]; then
     mv uxp platform
 fi
 
-WIN32_REDIST_DIR="" # "${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
+WIN32_REDIST_DIR="${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
 echo "$WIN32_REDIST_DIR"
-WIN_UCRT_REDIST_DIR=""
+WIN_UCRT_REDIST_DIR="${WindowsSdkDir}Redist\\${WindowsSDKLibVersion}ucrt\\DLLs\\x64"
+echo "$WIN_UCRT_REDIST_DIR"
 
 sed "s!@CUEMOL_BUNDLE@!$BUNDLE_DIR!g" mozconfig_win_x64 \
     | sed "s!@CUEMOL_DIR@!$CUEMOL_DIR!g" \
     | sed "s!@BOOST_DIR@!$BOOST_DIR!g" \
     | sed "s!@DEPLIBS_DIR@!$LIBDIR!g" \
-    | sed "s!@WIN32_REDIST_DIR@!$WIN32_REDIST_DIR!g"
+    | sed "s!@WIN32_REDIST_DIR@!$WIN32_REDIST_DIR!g" \
     | sed "s!@WIN_UCRT_REDIST_DIR@!$WIN_UCRT_REDIST_DIR!g" > .mozconfig
 
 ./mach build
