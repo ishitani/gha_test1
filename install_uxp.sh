@@ -17,59 +17,16 @@ if [ ! -d ${WSDIR}/uxp_gui/platform ]; then
     mv uxp platform
 fi
 
+WIN32_REDIST_DIR="" # "${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
+echo "$WIN32_REDIST_DIR"
+WIN_UCRT_REDIST_DIR=""
+
+sed "s!@CUEMOL_BUNDLE@!$BUNDLE_DIR!g" mozconfig_win_x64 \
+    | sed "s!@CUEMOL_DIR@!$CUEMOL_DIR!g" \
+    | sed "s!@BOOST_DIR@!$BOOST_DIR!g" \
+    | sed "s!@DEPLIBS_DIR@!$LIBDIR!g" \
+    | sed "s!@WIN32_REDIST_DIR@!$WIN32_REDIST_DIR!g"
+    | sed "s!@WIN_UCRT_REDIST_DIR@!$WIN_UCRT_REDIST_DIR!g" > .mozconfig
+
 ./mach build
 
-# ls -la .
-
-# set +e
-
-# rm -rf configure.py
-# ./mach build
-# rm -rf moz.build
-# ./mach build
-# rm -rf configure.in
-# ./mach build
-# rm -rf README.md
-# ./mach build
-# rm -rf moz.configure
-# ./mach build
-# rm -rf .ycm_extra_conf.py
-# ./mach build
-# rm -rf aclocal.m4
-# ./mach build
-# rm -rf build/pymake
-# ./mach build
-# rm -rf build/autoconf
-# ./mach build
-# rm -rf build/autoconf/mozconfig-find
-# ./mach build
-# rm -rf build/autoconf/mozconfig2client-mk
-# ./mach build
-# rm -rf build/dumbmake-dependencies
-# ./mach build
-# rm -rf build/pypng
-# ./mach build
-# # rm -rf build
-# # ./mach build
-
-# rm -rf client.mk
-# ./mach build
-
-# rm -rf config/baseconfig.mk
-# ./mach build
-# rm -rf config/makefiles/autotargets.mk
-# ./mach build
-# rm -rf config/makefiles/makeutils.mk
-# ./mach build
-# rm -rf config/configobj.py
-# ./mach build
-# rm -rf config/config.mk
-# ./mach build
-# rm -rf config/printconfigsetting.py
-# ./mach build
-# rm -rf config/rules.mk
-# ./mach build
-# rm -rf config/recurse.mk
-# ./mach build
-
-# find . -type f

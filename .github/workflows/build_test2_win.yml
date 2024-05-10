@@ -41,8 +41,15 @@ jobs:
         dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs"
         dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs\x64"
 
-        set
-
+    - name: Get env (bash)
+      shell: 
+      run: |
+        set -eux
+        env
+        echo $VCToolsRedistDir
+        WIN32_REDIST_DIR="${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
+        echo $WIN32_REDIST_DIR
+        
     - uses: actions/cache@v4
       with:
         path: C:\mozilla-build\
