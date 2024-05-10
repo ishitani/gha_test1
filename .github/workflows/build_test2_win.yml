@@ -42,7 +42,7 @@ jobs:
         dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs\x64"
 
     - name: Get env (bash)
-      shell: 
+      shell: bash
       run: |
         set -eux
         env
