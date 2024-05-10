@@ -22,7 +22,9 @@ jobs:
     # - name: Add msbuild to PATH
     #   uses: microsoft/setup-msbuild@v2
     - uses: ilammy/msvc-dev-cmd@v1
-
+      with:
+        arch: x64
+      
     - name: Get env
       shell: cmd
       run: |
