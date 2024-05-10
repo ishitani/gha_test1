@@ -17,9 +17,9 @@ if [ ! -d ${WSDIR}/uxp_gui/platform ]; then
     mv uxp platform
 fi
 
-WIN32_REDIST_DIR="${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
+WIN32_REDIST_DIR="$1"
 echo "$WIN32_REDIST_DIR"
-WIN_UCRT_REDIST_DIR="${WindowsSdkDir}Redist\\${WindowsSDKLibVersion}ucrt\\DLLs\\x64"
+WIN_UCRT_REDIST_DIR="2" #${WindowsSdkDir}Redist\\${WindowsSDKLibVersion}ucrt\\DLLs\\x64"
 echo "$WIN_UCRT_REDIST_DIR"
 
 sed "s!@CUEMOL_BUNDLE@!$BUNDLE_DIR!g" mozconfig_win_x64 \

@@ -45,7 +45,7 @@ jobs:
     #   shell: bash
     #   run: |
     #     set -eux
-    #     env
+    #     # env
     #     echo $VCToolsRedistDir
     #     WIN32_REDIST_DIR="${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
     #     echo $WIN32_REDIST_DIR
@@ -93,7 +93,8 @@ jobs:
       shell: cmd
       run: |
         echo on
-        cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh
+        "%VCToolsRedistDir%x64\Microsoft.VC142.CRT"
+        cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh "%VCToolsRedistDir%x64\Microsoft.VC142.CRT" "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs\x64"
 
     # - name: Run mozilla build
     #   shell: cmd
