@@ -36,7 +36,10 @@ jobs:
         
         dir "%WindowsSdkDir%"
         dir "%WindowsSdkDir%\Redist"
-        dir "%WindowsSdkDir%\Redist\WindowsSDKLibVersion"
+        dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%"
+        dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt"
+        dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs"
+        dir "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs\x64"
 
         set
 
