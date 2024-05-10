@@ -26,7 +26,11 @@ jobs:
     - name: Get env
       shell: cmd
       run: |
-        set
+        echo on
+        echo %VCToolsRedistDir%
+        dir %VCToolsRedistDir%
+        dir %VCToolsRedistDir%\x64
+        dir %VCToolsRedistDir%\x64\Microsoft.VC143.CRT
         
     - uses: actions/cache@v4
       with:
