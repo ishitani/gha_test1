@@ -100,7 +100,7 @@ jobs:
       shell: cmd
       run: |
         echo on
-        cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh "%VCToolsRedistDir%x64\Microsoft.VC142.CRT" "%WindowsSdkDir%\Redist\%WindowsSDKLibVersion%\ucrt\DLLs\x64"
+        cmd /c C:/mozilla-build/start-shell.bat ${{ steps.get-repos-dir.outputs.repos-dir }}/install_uxp.sh
 
     # - name: Run mozilla build
     #   shell: cmd
