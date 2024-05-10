@@ -45,7 +45,7 @@ jobs:
       shell: bash
       run: |
         set -eux
-        cd ${{ github.workspace }}
+        cd $GITHUB_WORKSPACE
         WIN32_REDIST_DIR="${VCToolsRedistDir}x64\\Microsoft.VC142.CRT"
         echo "$WIN32_REDIST_DIR"
         WIN_UCRT_REDIST_DIR="${WindowsSdkDir}Redist\\${WindowsSDKLibVersion}ucrt\\DLLs\\x64"
